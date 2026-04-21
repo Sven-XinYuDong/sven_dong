@@ -1,35 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Your Name</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="UTF-8">
+<title>Your Name</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+
+<!-- Nav -->
+<nav id="nav">
+  <span class="nav-name">Your Name</span>
+  <ul class="nav-links">
+    <li><a href="#about">About <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+    <li><a href="#projects">Projects <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+    <li><a href="#experience">Experience <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+    <li><a href="#contact">Contact <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+  </ul>
+</nav>
 
 <div class="container">
 
-  <!-- Identity -->
-<section class="hero">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="assets/images/hero.png" alt="hero">
+    </div>
+    <div class="hero-text">
+      <h1>Your Name</h1>
+      <p>Data Science · Machine Learning · Visual Systems</p>
+    </div>
+  </section>
 
-  <div class="hero-image">
-    <img src="assets/images/hero.png" alt="hero">
-  </div>
-
-  <div class="hero-text">
-    <h1>Your Name</h1>
-    <p>Data Science · Machine Learning · Visual Systems</p>
-  </div>
-
-</section>
-
-  <!-- Statement -->
-  <section class="section">
+  <!-- About -->
+  <section class="section fade" id="about">
     <div class="label">About</div>
     <div class="content">
-      <p>
+      <p class="about-text">
         I design and build systems that connect data, behavior, and decision-making.
         My work sits between machine learning and applied analytics.
       </p>
@@ -37,95 +47,100 @@
   </section>
 
   <!-- Projects -->
-  <section class="section">
+  <section class="section fade" id="projects">
     <div class="label">Projects</div>
-
     <div class="projects">
-
       <a class="project" href="projects/project-1.html">
-        <div class="row">
-          <span class="title">Project One</span>
-          <span class="meta">ML · 2025</span>
+        <div class="project-row">
+          <span class="project-title">Project One</span>
+          <span class="project-meta">ML · 2025</span>
         </div>
-        <div class="desc">A short narrative describing the project focus.</div>
+        <div class="project-desc">A short narrative describing the project focus.</div>
+        <span class="project-arrow">→</span>
       </a>
-
-      <a class="project" href="projects/project-1.html">
-        <div class="row">
-          <span class="title">Project Two</span>
-          <span class="meta">Data · 2024</span>
+      <a class="project" href="projects/project-2.html">
+        <div class="project-row">
+          <span class="project-title">Project Two</span>
+          <span class="project-meta">Data · 2024</span>
         </div>
-        <div class="desc">Another project with analytical depth.</div>
+        <div class="project-desc">Another project with analytical depth.</div>
+        <span class="project-arrow">→</span>
       </a>
-
     </div>
   </section>
 
   <!-- Experience -->
-  <section class="section">
+  <section class="section fade" id="experience">
     <div class="label">Experience</div>
-
     <div class="timeline">
-
       <div class="job">
-        <img src="assets/logos/company1.png" class="logo">
-        <div class="job-content">
-          <div class="row">
-            <span class="title">Company A</span>
-            <span class="meta">2023 – Present</span>
+        <img src="assets/logos/company1.png" class="logo" alt="Company A">
+        <div class="job-content" style="flex:1">
+          <div class="job-meta">
+            <span class="job-company">Company A</span>
+            <span class="job-period">2023 – Present</span>
           </div>
-          <div class="role">Data Scientist</div>
+          <div class="job-role">Data Scientist</div>
         </div>
       </div>
-
       <div class="job">
-        <img src="assets/logos/company2.png" class="logo">
-        <div class="job-content">
-          <div class="row">
-            <span class="title">Company B</span>
-            <span class="meta">2021 – 2023</span>
+        <img src="assets/logos/company2.png" class="logo" alt="Company B">
+        <div class="job-content" style="flex:1">
+          <div class="job-meta">
+            <span class="job-company">Company B</span>
+            <span class="job-period">2021 – 2023</span>
           </div>
-          <div class="role">Analyst</div>
+          <div class="job-role">Analyst</div>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- Publications -->
-  <section class="section">
+  <section class="section fade">
     <div class="label">Publications</div>
-    <div class="content">
-      <p>Paper Title — Journal, 2024</p>
-      <p>Another Paper Title — Conference, 2023</p>
+    <div class="publications">
+      <div class="pub">
+        <span class="pub-title">Paper Title</span>
+        <span class="pub-venue">Journal · 2024</span>
+      </div>
+      <div class="pub">
+        <span class="pub-title">Another Paper Title</span>
+        <span class="pub-venue">Conference · 2023</span>
+      </div>
     </div>
   </section>
 
   <!-- Skills -->
-  <section class="section">
+  <section class="section fade">
     <div class="label">Skills</div>
     <div class="skills">
       <span>Python</span>
       <span>R</span>
       <span>SQL</span>
-      <span>ML</span>
+      <span>Machine Learning</span>
       <span>Statistics</span>
     </div>
   </section>
 
   <!-- Links -->
-  <section class="section">
+  <section class="section fade" id="contact">
     <div class="label">Links</div>
-    <div class="content">
-      <a href="#">GitHub</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">Email</a>
+    <div class="links">
+      <a href="#" class="link-item">GitHub</a>
+      <a href="#" class="link-item">LinkedIn</a>
+      <a href="#" class="link-item">Email</a>
     </div>
   </section>
 
+  <!-- Footer -->
+  <footer>
+    <span class="footer-copy">© 2025 Your Name</span>
+    <span class="footer-copy">Data Science · ML · Visual Systems</span>
+  </footer>
+
 </div>
 
+<script src="assets/script.js"></script>
 </body>
 </html>
-
-<script src="assets/script.js"></script>
