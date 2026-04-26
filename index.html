@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Your Name</title>
+<title>Sven Dong</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 
 <!-- Nav -->
 <nav id="nav">
-  <span class="nav-name">Your Name</span>
+  <span class="nav-name">Sven Dong</span>
   <ul class="nav-links">
     <li><a href="#about">About <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
     <li><a href="#projects">Projects <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8L8 2M8 2H3M8 2V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
@@ -27,70 +27,239 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-image">
-      <img src="assets/images/hero.png" alt="hero">
+      <video autoplay loop muted playsinline>
+        <source src="assets/images/hero.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="hero-text">
-      <h1>Your Name</h1>
-      <p>Data Science · Machine Learning · Visual Systems</p>
+      <h1>Sven Dong</h1>
+      <p>Data Science · Machine Learning · Visualization</p>
     </div>
   </section>
 
   <!-- About -->
-  <section class="section fade" id="about">
-    <div class="label">About</div>
-    <div class="content">
+<section class="section fade" id="about">
+  <div class="label">About</div>
+  <div class="content">
+    <div style="display:flex; gap:32px; align-items:flex-start;">
       <p class="about-text">
-        I design and build systems that connect data, behavior, and decision-making.
-        My work sits between machine learning and applied analytics.
+        Hello I’m Sven Dong, a Data Analyst at BC Centre for Disease Control. I work with complex healthcare data, focusing on making analysis clear, structured, and useful for real-world decisions. I care about turning data into something people can actually use.
       </p>
+      <img
+        src="assets/images/hero.png"
+        alt="Sven Dong"
+        style="width:160px; height:160px; object-fit:cover; flex-shrink:0; filter:saturate(100%); order:1;border-radius:50%;"
+      >
+    </div>
+    <div class="sell-points">
+      <div class="sp-item">
+        <span class="sp-num">01</span>
+        <span class="sp-text">Apply OMOP CDM and FDA Sentinel models to drive real-world evidence and regulatory analytics</span>
+      </div>
+      <div class="sp-item">
+        <span class="sp-num">02</span>
+        <span class="sp-text">Build end-to-end data workflows for healthcare analytics, from data engineering to decision-ready insights</span>
+      </div>
+      <div class="sp-item">
+        <span class="sp-num">03</span>
+        <span class="sp-text">Deliver scalable, production-grade analytics solutions across diverse healthcare environments</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+  <section class="section fade" id="experience">
+    <div class="label">Experience</div>
+    <div class="timeline">
+      <div class="job">
+        <a href="https://www.siemens-healthineers.com" target="_blank" rel="noopener">
+          <img src="assets/logos/bcdc.jpeg" class="logo" alt="BCCDC">
+        </a>
+        <div class="job-content" style="flex:1">
+          <div class="job-meta">
+            <a href="https://www.bccdc.ca" target="_blank" rel="noopener" class="job-company">BC Centre for Disease Control</a>
+            <span class="job-period">August 2023 - Current</span>
+          </div>
+          <div class="job-secondary">
+            <span class="job-role">Data Analyst</span>
+            <span class="job-location">Vancouver</span>
+          </div>
+        </div>
+      </div>
+      <div class="job">
+        <a href="https://www.siemens-healthineers.com" target="_blank" rel="noopener">
+          <img src="assets/logos/org-Siemens.svg" class="logo" alt="Siemens Healthineers">
+        </a>
+        <div class="job-content" style="flex:1">
+          <div class="job-meta">
+            <a href="https://www.siemens-healthineers.com" target="_blank" rel="noopener" class="job-company">Siemens Healthineers</a>
+            <span class="job-period">May – Jun 2023</span>
+          </div>
+          <div class="job-secondary">
+            <span class="job-role">Data Scientist (Capstone)</span>
+            <span class="job-location">Oakville</span>
+          </div>
+        </div>
+      </div>
+      <div class="job">
+        <a href="https://mbfs.com/home" target="_blank" rel="noopener">
+          <img src="assets/logos/org-daimler.svg" class="logo" alt="Mercedes Benz Financial Service, Daimler">
+        </a>
+        <div class="job-content" style="flex:1">
+          <div class="job-meta">
+            <a href="https://mbfs.com/home" target="_blank" rel="noopener" class="job-company">Mercedes Benz · Daimler</a>
+            <span class="job-period">Jul – Sep 2021</span>
+          </div>
+          <div class="job-secondary">
+            <span class="job-role">Data Analyst Intern</span>
+            <span class="job-location">Beijing</span>
+          </div>
+        </div>
+      </div>
+      <div class="job">
+        <a href="https://www2.deloitte.com/cn/en.html" target="_blank" rel="noopener">
+          <img src="assets/logos/org-deloitte.svg" class="logo" alt="Deloitte">
+        </a>
+        <div class="job-content" style="flex:1">
+          <div class="job-meta">
+            <a href="https://www2.deloitte.com/cn/en.html" target="_blank" rel="noopener" class="job-company">Deloitte</a>
+            <span class="job-period">Jan – Mar 2021</span>
+          </div>
+          <div class="job-secondary">
+            <span class="job-role">Business Analyst Intern</span>
+            <span class="job-location">Beijing</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+   <!-- Skills -->
+  <section class="section fade">
+  <div class="label">Skills</div>
+  <div class="skills">
+
+    <div class="skill-group">
+      <span class="skill-group-label">Languages & Core</span>
+      <div class="skill-tags">
+        <span>Python</span>
+        <span>R</span>
+        <span>SQL</span>
+        <span>JavaScript</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <span class="skill-group-label">Data & Cloud Platforms</span>
+      <div class="skill-tags">
+        <span>Azure</span>
+        <span>OMOP CDM</span>
+        <span>FDA Sentinel</span>
+        <span>Spark</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <span class="skill-group-label">BI & Tools</span>
+      <div class="skill-tags">
+        <span>Tableau</span>
+        <span>Power BI</span>
+        <span>Dash</span>
+        <span>Plotly</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <span class="skill-group-label">Methodologies</span>
+      <div class="skill-tags">
+        <span>Machine Learning</span>
+        <span>Statistics</span>
+        <span>Visualization</span>
+        <span>ETL Pipelines</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+  
 
   <!-- Projects -->
   <section class="section fade" id="projects">
     <div class="label">Projects</div>
     <div class="projects">
-      <a class="project" href="projects/project-1.html">
+      <a class="project" href="https://sven-dong.netlify.app/project/oreoscoptes-distribution-in-bc/" target="_blank" rel="noopener">
         <div class="project-row">
-          <span class="project-title">Project One</span>
-          <span class="project-meta">ML · 2025</span>
+          <span class="project-title">Oreoscoptes Distribution in BC</span>
+          <span class="project-meta">Visualization · 2023</span>
         </div>
-        <div class="project-desc">A short narrative describing the project focus.</div>
+        <div class="project-desc">Wildlife preservation analysis in British Columbia using species distribution modelling and ecological data.</div>
         <span class="project-arrow">→</span>
       </a>
-      <a class="project" href="projects/project-2.html">
+      <a class="project" href="https://sven-dong.netlify.app/project/supervised-and-unsupervised-study-on-heart-disease/" target="_blank" rel="noopener">
         <div class="project-row">
-          <span class="project-title">Project Two</span>
-          <span class="project-meta">Data · 2024</span>
+          <span class="project-title">Supervised Study on Heart Disease</span>
+          <span class="project-meta">ML · 2023</span>
         </div>
-        <div class="project-desc">Another project with analytical depth.</div>
+        <div class="project-desc">Predictive modelling to investigate risk factors and patterns in heart disease data.</div>
+        <span class="project-arrow">→</span>
+      </a>
+      <a class="project" href="https://sven-dong.netlify.app/project/watch-out-for-homicides/" target="_blank" rel="noopener">
+        <div class="project-row">
+          <span class="project-title">Watch Out for Homicides</span>
+          <span class="project-meta">Dashboard · 2023</span>
+        </div>
+        <div class="project-desc">Interactive Dash application visualizing homicide trends across the United States.</div>
+        <span class="project-arrow">→</span>
+      </a>
+      <a class="project" href="https://sven-dong.netlify.app/project/adaptive-analysis-of-the-heteroscedastic-multivariate-regression-modeling/" target="_blank" rel="noopener">
+        <div class="project-row">
+          <span class="project-title">Multivariate Weighted Lasso</span>
+          <span class="project-meta">Statistics · 2024</span>
+        </div>
+        <div class="project-desc">Novel method for heteroscedastic multivariate regression modelling with financial applications.</div>
         <span class="project-arrow">→</span>
       </a>
     </div>
   </section>
 
-  <!-- Experience -->
-  <section class="section fade" id="experience">
-    <div class="label">Experience</div>
+  
+
+
+  
+
+  <!-- Education -->
+  <section class="section fade" id="education">
+    <div class="label">Education</div>
     <div class="timeline">
       <div class="job">
-        <img src="assets/logos/company1.png" class="logo" alt="Company A">
+        <a href="https://www.ubc.ca" target="_blank" rel="noopener">
+          <img src="assets/logos/ubc.jpg" class="logo" alt="University of British Columbia">
+        </a>
         <div class="job-content" style="flex:1">
           <div class="job-meta">
-            <span class="job-company">Company A</span>
-            <span class="job-period">2023 – Present</span>
+            <a href="https://www.ubc.ca" target="_blank" rel="noopener" class="job-company">University of British Columbia</a>
+            <span class="job-period">2022 – 2023</span>
           </div>
-          <div class="job-role">Data Scientist</div>
+          <div class="job-secondary">
+            <span class="job-role">Master of Data Science</span>
+            <span class="job-location">Vancouver</span>
+          </div>
         </div>
       </div>
       <div class="job">
-        <img src="assets/logos/company2.png" class="logo" alt="Company B">
+        <a href="https://university-b.edu" target="_blank" rel="noopener">
+          <img src="assets/logos/cufe.svg" class="logo" alt="Central University of Fianance and Economics">
+        </a>
         <div class="job-content" style="flex:1">
           <div class="job-meta">
-            <span class="job-company">Company B</span>
-            <span class="job-period">2021 – 2023</span>
+            <a href="https://university-b.edu" target="_blank" rel="noopener" class="job-company">Central University of Fianance and Economics</a>
+            <span class="job-period">2018 – 2022</span>
           </div>
-          <div class="job-role">Analyst</div>
+          <div class="job-secondary">
+            <span class="job-role">B.S. Statistics</span>
+            <span class="job-location">Beijing</span>
+          </div>
         </div>
       </div>
     </div>
@@ -101,42 +270,33 @@
     <div class="label">Publications</div>
     <div class="publications">
       <div class="pub">
-        <span class="pub-title">Paper Title</span>
-        <span class="pub-venue">Journal · 2024</span>
-      </div>
-      <div class="pub">
-        <span class="pub-title">Another Paper Title</span>
-        <span class="pub-venue">Conference · 2023</span>
+        <span class="pub-title"><a href="https://doi.org/10.1080/00949655.2024.2375396" target="_blank" rel="noopener" style="color:inherit;">Adaptive analysis of the heteroscedastic multivariate regression modeling</a></span>
+        <span class="pub-venue">JSS · 2024</span>
       </div>
     </div>
   </section>
 
-  <!-- Skills -->
-  <section class="section fade">
-    <div class="label">Skills</div>
-    <div class="skills">
-      <span>Python</span>
-      <span>R</span>
-      <span>SQL</span>
-      <span>Machine Learning</span>
-      <span>Statistics</span>
-    </div>
-  </section>
+ 
 
   <!-- Links -->
   <section class="section fade" id="contact">
     <div class="label">Links</div>
     <div class="links">
-      <a href="#" class="link-item">GitHub</a>
-      <a href="#" class="link-item">LinkedIn</a>
-      <a href="#" class="link-item">Email</a>
+      <a href="https://github.com" class="link-item">GitHub</a>
+      <a href="https://www.linkedin.com" class="link-item">LinkedIn</a>
+      <a href="mailto:Sven_XinyuDong@outlook.com" class="link-item">Sven_XinyuDong@outlook.com</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <span class="footer-copy">© 2025 Your Name</span>
-    <span class="footer-copy">Data Science · ML · Visual Systems</span>
+    <span class="footer-copy">© 2025 Sven Dong</span>
+    <span class="footer-copy">Data Science · ML · Visualization</span>
+    <span class="footer-copy">
+    <a href="https://www.vecteezy.com/free-videos/deep-sea" 
+       target="_blank" rel="noopener" 
+       style="color:inherit;">Deep Sea Stock Videos by Vecteezy</a>
+    </span>
   </footer>
 
 </div>

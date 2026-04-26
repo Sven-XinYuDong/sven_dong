@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Multivariate Weighted Lasso — Sven Dong</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-name">Sven Dong</a>
+  <a href="index.html#projects" class="nav-back">
+    <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 5H2M2 5L5 2M2 5L5 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    All Projects
+  </a>
+</nav>
+
+<div class="container">
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="https://sven-dong.netlify.app/project/adaptive-analysis-of-the-heteroscedastic-multivariate-regression-modeling/featured_hu688487f532b7172a0996214caf3c3760_84494_720x2500_fit_q75_h2_lanczos.webp" alt="Multivariate Weighted Lasso">
+    </div>
+    <div class="hero-text">
+      <div class="hero-tag">Statistics · Publication</div>
+      <h1>Adaptive Analysis of Heteroscedastic Multivariate Regression</h1>
+      <div class="hero-meta">
+        <span class="hero-meta-item">2024</span>
+        <div class="hero-meta-div"></div>
+        <span class="hero-meta-item">Dong · Lin · Cai · Yang</span>
+        <div class="hero-meta-div"></div>
+        <span class="hero-meta-item">Journal of Statistical Software</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="label">Abstract</div>
+    <div class="prose">
+      <p>Multivariate regression is a widely used technique for large-scale statistical applications. In this paper, we propose a novel method for the multivariate regression model, called the <strong>Multivariate Weighted Lasso (MWL)</strong>.</p>
+      <p>We consider the heteroscedasticity in the noise matrix and introduce an adjustable weight to calibrate the fitting residuals of different responses. The proposed method shows an advantage in complex multivariate regressions with heteroscedasticity. To implement the procedure, an efficient algorithm is provided based on multivariate coordinate descent. Theoretical guarantees are provided for the proposed method.</p>
+      <p>Numerical simulations and financial applications are conducted using the proposed and other existing methods. The results indicate that the proposed method performs well in both variable selection and coefficient estimation.</p>
+      <a href="https://doi.org/10.1080/00949655.2024.2375396" target="_blank" rel="noopener" class="link-btn">↗ Published Paper · DOI</a>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="label">Method</div>
+    <div class="prose">
+      <h2>Motivation</h2>
+      <p>Standard multivariate lasso methods assume homoscedastic noise — i.e., equal variance across all response variables. In practice, especially in financial data, different response variables often exhibit very different noise levels (heteroscedasticity). Ignoring this leads to suboptimal variable selection and biased coefficient estimates.</p>
+      <h2>Multivariate Weighted Lasso</h2>
+      <p>The MWL introduces a diagonal weight matrix that adapts to the noise variance of each response. The weight is estimated from the residuals of an initial fit and used to rescale the penalty applied to each response, allowing the model to concentrate its regularization where signal-to-noise is poor.</p>
+      <div class="math">minimize ‖Y − XB‖²_W + λ‖B‖₁</div>
+      <p>where <strong>W</strong> is the adaptive weight matrix calibrated to the heteroscedastic noise structure.</p>
+      <h2>Algorithm</h2>
+      <p>Estimation is carried out via multivariate coordinate descent, cycling through each coefficient of <strong>B</strong> while holding others fixed. The algorithm converges efficiently and scales well with the number of response variables.</p>
+      <div class="stack-row">
+        <span class="stack-tag">R</span>
+        <span class="stack-tag">glmnet</span>
+        <span class="stack-tag">Matrix</span>
+        <span class="stack-tag">MASS</span>
+        <span class="stack-tag">ggplot2</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="label">Results</div>
+    <div class="prose">
+      <h2>Simulations</h2>
+      <p>Numerical simulations were conducted across multiple heteroscedastic settings, comparing MWL against standard multivariate lasso and other regularization approaches. MWL consistently achieved lower estimation error and higher true-positive variable selection rates, particularly in settings with high variance heterogeneity across responses.</p>
+      <h2>Financial Application</h2>
+      <p>The method was applied to financial return data where the heteroscedasticity assumption is well-motivated. MWL outperformed existing approaches in both variable selection stability and out-of-sample prediction accuracy.</p>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="label">Authors</div>
+    <div class="prose">
+      <p>Xinyu Dong¹*, Ziyi Lin¹*, Ziyi Cai¹, Yuehan Yang¹†</p>
+      <p style="color:var(--c-muted); font-size:13px;">¹ University of British Columbia &nbsp;·&nbsp; * Equal contribution &nbsp;·&nbsp; † Corresponding author</p>
+      <a href="https://doi.org/10.1080/00949655.2024.2375396" target="_blank" rel="noopener" class="link-btn">↗ Read the Paper</a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-copy">© 2025 Sven Dong</span>
+    <span class="footer-copy">Data Science · ML · Visualization</span>
+  </footer>
+
+</div>
+<script src="project.js"></script>
+</body>
+</html>

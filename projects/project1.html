@@ -1,47 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Project One</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="../assets/style.css">
+<meta charset="UTF-8">
+<title>Oreoscoptes Distribution in BC — Sven Dong</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="project.css">
 </head>
-
 <body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-name">Sven Dong</a>
+  <a href="index.html#projects" class="nav-back">
+    <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 5H2M2 5L5 2M2 5L5 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    All Projects
+  </a>
+</nav>
 
 <div class="container">
 
-  <a class="back" href="../index.html">← Back</a>
+  <section class="hero">
+    <div class="hero-image">
+      <img src="https://sven-dong.netlify.app/project/oreoscoptes-distribution-in-bc/featured_hu07d01243d56d44257bf3eecd06896f7d_753021_720x2500_fit_q75_h2_lanczos_3.webp" alt="Oreoscoptes Distribution in BC">
+    </div>
+    <div class="hero-text">
+      <div class="hero-tag">GIS · Visualization</div>
+      <h1>Oreoscoptes Distribution in BC</h1>
+      <div class="hero-meta">
+        <span class="hero-meta-item">2023</span>
+        <div class="hero-meta-div"></div>
+        <span class="hero-meta-item">Xinyu Dong</span>
+        <div class="hero-meta-div"></div>
+        <span class="hero-meta-item">Species Distribution Modelling</span>
+      </div>
+    </div>
+  </section>
 
-  <article class="post">
+  <section class="section fade">
+    <div class="label">Introduction</div>
+    <div class="prose">
+      <p>Wildlife preservation in British Columbia (BC) is an important topic to address. Having diverse wildlife could lead to a number of benefits, such as thriving ecosystems (e.g. diverse species lead to more balanced and resilient ecosystems; Ferrero &amp; Troìa, 2021), or economic benefits through nature tourism.</p>
+      <p>The Sage Thrasher (<em>Oreoscoptes montanus</em>) has experienced up to a 50% population decline over the past century in BC, and has been designated as endangered by BC Ministry of Environment. The current investigation aims to preserve sage thrasher conservation by conducting a spatial statistical analysis, focusing on three questions:</p>
+      <ul>
+        <li>The <strong>spatial distribution</strong> of sage thrashers in BC.</li>
+        <li>The <strong>environmental covariates</strong> linked to sage thrasher population.</li>
+        <li><strong>Regression models</strong> to predict geographical intensity and identify suitable new habitat areas.</li>
+      </ul>
+    </div>
+  </section>
 
-    <h1>Project One</h1>
-    <p class="meta">2025 · Machine Learning</p>
+  <section class="section fade">
+    <div class="label">Methods</div>
+    <div class="prose">
+      <h2>Data</h2>
+      <p>Occurrence data (850 BC sightings) was downloaded from GBIF (2023). Environmental covariates — elevation, distance to water, forest cover, and HFI — were obtained from BC-wide rasters provided by Michael Noonan (Noonan, 2022), ranging from 1M to 7M spatial measurements.</p>
+      <h2>Analytical Workflow</h2>
+      <h3>1 — Data Preparation</h3>
+      <p>Occurrence coordinates were cleaned for missing values and projected into a consistent CRS. A spatial point pattern object (<code>ppp</code>) was constructed within the BC observation window defined by <code>as.owin(DATA$Window)</code>.</p>
+      <h3>2 — Spatial Analysis</h3>
+      <p>Homogeneity was assessed via quadrat test. Hot spot analysis identified areas of elevated intensity using kernel density estimation.</p>
+      <h3>3 — Covariate Linkage</h3>
+      <p>Relationships between each covariate and intensity were examined using <code>rhohat</code> kernel estimation. Forest and HFI were excluded due to wide bandwidths; Elevation and Distance to Water were selected as primary covariates.</p>
+      <h3>4 — Regression Models</h3>
+      <p>Both covariates were scaled by mean and variance. A Poisson point process model (PPM) was fit; due to convergence failure, the squared elevation term was dropped. An advanced GAM with 3 degrees of freedom per covariate was subsequently fitted.</p>
+      <div class="stack-row">
+        <span class="stack-tag">R</span>
+        <span class="stack-tag">spatstat</span>
+        <span class="stack-tag">sf</span>
+        <span class="stack-tag">sp</span>
+        <span class="stack-tag">dplyr</span>
+        <span class="stack-tag">maptools</span>
+        <span class="stack-tag">rgdal</span>
+        <span class="stack-tag">splines</span>
+      </div>
+    </div>
+  </section>
 
-    <p class="lead">
-      This project explores predictive modeling in structured behavioral data.
-    </p>
+  <section class="section fade">
+    <div class="label">Results</div>
+    <div class="prose">
+      <h2>Spatial Distribution</h2>
+      <p>The data is significantly inhomogeneous — sage thrashers cluster in southern BC, with the hotspot identified at Osoyoos. A quadrat test confirmed non-homogeneity (small p-value).</p>
+      <div class="figure">
+        <img src="https://sven-dong.netlify.app/project/oreoscoptes-distribution-in-bc/fig1_hu07270818caa90092814b668fc8cc908c_92789_f3ec67c5ee1264b0fb2ec269239ee25d.webp" alt="Figure 1">
+        <div class="figure-caption">Fig 1. — Spatial distribution of Oreoscoptes montanus across BC.</div>
+      </div>
+      <div class="figure">
+        <img src="https://sven-dong.netlify.app/project/oreoscoptes-distribution-in-bc/fig2_hucc1727639e260c93861b7b6bdea47307_44625_96677f9a6e86d1c556fe0f144af8a4b4.webp" alt="Figure 2">
+        <div class="figure-caption">Fig 2. — Hotspot analysis identifying Osoyoos as the primary concentration area.</div>
+      </div>
+      <h2>Environmental Covariates</h2>
+      <p>Kernel estimation revealed two elevation clusters (0m and 500m) non-linearly related to bird intensity. Distance to water shows a preference band at 3–5 km from water sources.</p>
+      <div class="figure">
+        <img src="https://sven-dong.netlify.app/project/oreoscoptes-distribution-in-bc/fig3_hu405ce6dc826fee4848c122b84d4ebfa2_92311_ddeb3c19a7a29c9e2a288694ae9243a9.webp" alt="Figure 3">
+        <div class="figure-caption">Fig 3. — Kernel estimation: Elevation vs. sage thrasher intensity.</div>
+      </div>
+      <div class="figure">
+        <img src="https://sven-dong.netlify.app/project/oreoscoptes-distribution-in-bc/fig4_hue2f65c172ab2ad3484f33553e52b5935_88206_8ac947e622ca103d415e4ca384db0ecd.webp" alt="Figure 4">
+        <div class="figure-caption">Fig 4. — Kernel estimation: Distance to water vs. sage thrasher intensity.</div>
+      </div>
+      <h2>Regression Models</h2>
+      <p>The final PPM model retained scaled elevation and distance to water (with quadratic water term). All coefficients were statistically significant. The intensity function is:</p>
+      <div class="math">λ(u) = exp(β₀ + β₁·Elevation_scaled + β₂·Dist_Water_scaled + β₃·Dist_Water_scaled²)</div>
+      <p>The model predicted Vancouver Island and Graham Island as potentially suitable new habitat areas, though no true observations fall within these zones.</p>
+      <div class="figure">
+        <img src="https://sven-dong.netlify.app/project/oreoscoptes-distribution-in-bc/fig5_hu2a2de6e4fb088ae32ec00754c51e6382_59626_afe9a99a5266dac8a0d36337eb219d1a.webp" alt="Figure 5">
+        <div class="figure-caption">Fig 5. — Model fitting: predicted suitable areas overlaid with observed occurrences.</div>
+      </div>
+      <div class="figure">
+        <img src="https://sven-dong.netlify.app/project/oreoscoptes-distribution-in-bc/fig6_hue9e89936ff4eabbb132376dd0c06284a_121420_9b5d217efce8e3682ac941988a74b210.webp" alt="Figure 6">
+        <div class="figure-caption">Fig 6. — Marginal effects of Elevation and Distance to Water on predicted intensity.</div>
+      </div>
+      <h3>GAM Extension</h3>
+      <p>A GAM with 3 degrees of freedom per covariate was fitted, but spline terms still could not fully capture trends in the data.</p>
+      <div class="figure">
+        <img src="https://sven-dong.netlify.app/project/oreoscoptes-distribution-in-bc/fig8_hu0d1158cfe9cbb3ed89b918ea102ffa63_114115_8716e5c67ec0955b8a629e7bf4cc208d.webp" alt="Figure 8">
+        <div class="figure-caption">Fig 8. — Residual plot for the GAM model.</div>
+      </div>
+      <div class="figure">
+        <img src="https://sven-dong.netlify.app/project/oreoscoptes-distribution-in-bc/fig9_hue6901f2d431ddccbee53be34ce0572f1_53226_05a475e882de4777286162c19d461a00.webp" alt="Figure 9">
+        <div class="figure-caption">Fig 9. — GAM fitted plot: predicted intensity surface across BC.</div>
+      </div>
+    </div>
+  </section>
 
-    <h2>Method</h2>
-    <p>
-      Describe approach, model, pipeline.
-    </p>
+  <section class="section fade">
+    <div class="label">Discussion</div>
+    <div class="prose">
+      <p>Sage thrashers are disproportionately concentrated in southern BC, with key habitat predictors being low elevation (0 and 500m) and distance to water (3–5 km). Models predict Vancouver Island and Graham Island as potentially suitable new habitat areas, though model diagnostics suggest these should be interpreted with caution.</p>
+      <p>Limitations include small sample size (~800 occurrences), a restricted covariate set (notably excluding weather), and model fit issues with both PPM and GAM approaches. Future work should incorporate larger samples and richer environmental predictors.</p>
+    </div>
+  </section>
 
-    <img src="../assets/images/example.png">
+  <section class="section fade">
+    <div class="label">References</div>
+    <div class="references">
+      <div class="reference-item">BC Ministry of Environment and Climate Change Strategy. (2019). <em>Sage Thrasher.</em> Government of BC. <a href="https://www2.gov.bc.ca/assets/gov/environment/plants-animals-and-ecosystems/species-ecosystems-at-risk/brochures/sage_thrasher.pdf" target="_blank" rel="noopener">↗ gov.bc.ca</a></div>
+      <div class="reference-item">Ferrero, P., &amp; Troìa, A. (2021). The role of biodiversity in ecosystem resilience. <em>Sustainability, 13</em>(14), 7681. <a href="https://doi.org/10.3390/su13147681" target="_blank" rel="noopener">↗ doi.org/10.3390/su13147681</a></div>
+      <div class="reference-item">GBIF.org. (2023). <em>Oreoscoptes montanus</em> occurrence download. <a href="https://www.gbif.org/species/2494973" target="_blank" rel="noopener">↗ gbif.org</a></div>
+      <div class="reference-item">Noonan, M. (2022). <em>Data-589</em> [GitHub repository]. <a href="https://github.com/ubco-mds-2022/Data-589" target="_blank" rel="noopener">↗ github.com</a></div>
+    </div>
+  </section>
 
-    <h2>Results</h2>
-    <p>
-      Key findings and interpretation.
-    </p>
-
-    <h2>Reflection</h2>
-    <p>
-      What you learned, tradeoffs, limitations.
-    </p>
-
-  </article>
+  <footer>
+    <span class="footer-copy">© 2025 Sven Dong</span>
+    <span class="footer-copy">Data Science · ML · Visualization</span>
+  </footer>
 
 </div>
-
+<script src="project.js"></script>
 </body>
 </html>

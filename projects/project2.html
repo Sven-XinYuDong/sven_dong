@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Supervised Study on Heart Disease — Sven Dong</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-name">Sven Dong</a>
+  <a href="index.html#projects" class="nav-back">
+    <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 5H2M2 5L5 2M2 5L5 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    All Projects
+  </a>
+</nav>
+
+<div class="container">
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="https://sven-dong.netlify.app/project/supervised-and-unsupervised-study-on-heart-disease/heart-disease-clipart-14_hu709cca7eddb681d44b16da6afc1936ad_194248_720x2500_fit_q75_h2_lanczos.webp" alt="Supervised Study on Heart Disease">
+    </div>
+    <div class="hero-text">
+      <div class="hero-tag">ML · HealthData</div>
+      <h1>Supervised Study on Heart Disease</h1>
+      <div class="hero-meta">
+        <span class="hero-meta-item">2023</span>
+        <div class="hero-meta-div"></div>
+        <span class="hero-meta-item">Xinyu Dong</span>
+        <div class="hero-meta-div"></div>
+        <span class="hero-meta-item">Logistic Regression · Decision Trees</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="label">Introduction</div>
+    <div class="prose">
+      <p>Heart disease is a leading cause of death worldwide. Understanding risk factors may help prevent its development by enabling medical practitioners to identify susceptible individuals and apply early preventative interventions.</p>
+      <p>The current investigation examines three research questions:</p>
+      <ol>
+        <li>What lifestyle variables are related to the diagnosis of heart disease?</li>
+        <li>What variables are most important to the diagnosis of heart disease?</li>
+        <li>What groups of people are most likely to develop heart disease?</li>
+      </ol>
+      <p>Questions 1 and 2 were investigated using logistic regression. Question 3 was investigated using decision trees.</p>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="label">Dataset</div>
+    <div class="prose">
+      <p>Data was obtained from Kaggle (Pytlak, 2022), a subset of CDC telephone interviews with 401,958 US residents across all 50 states. After filtering for heart disease-related variables, removing missing values, and eliminating 18,078 duplicates, the final dataset comprised <strong>301,717 observations</strong> with 17 lifestyle predictor variables (4 numeric, 13 categorical).</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Variable</th>
+            <th>Type</th>
+            <th>Distribution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>HeartDisease</strong> (response)</td><td>Binary</td><td>Imbalanced (9% yes, 91% no)</td></tr>
+          <tr><td>BMI</td><td>Continuous</td><td>Normal (mean = 28.3)</td></tr>
+          <tr><td>Smoking</td><td>Binary</td><td>59% no, 41% yes</td></tr>
+          <tr><td>AlcoholDrinking</td><td>Binary</td><td>Imbalanced (7% yes)</td></tr>
+          <tr><td>Stroke</td><td>Binary</td><td>Imbalanced (4% yes)</td></tr>
+          <tr><td>AgeCategory</td><td>Ordinal</td><td>Normal (4 groups)</td></tr>
+          <tr><td>GenHealth</td><td>Ordinal</td><td>Negative skew</td></tr>
+          <tr><td>SleepTime</td><td>Continuous</td><td>Normal (mean = 7 hrs)</td></tr>
+          <tr><td>Race</td><td>Binary (recoded)</td><td>77% white, 23% non-white</td></tr>
+          <tr><td>+ 9 additional binary variables</td><td>Binary</td><td>Various</td></tr>
+        </tbody>
+      </table>
+      <p class="table-caption">Table 1 — Selected variables from the full 17-predictor dataset.</p>
+
+      <div class="stack-row">
+        <span class="stack-tag">R</span>
+        <span class="stack-tag">glm</span>
+        <span class="stack-tag">rpart</span>
+        <span class="stack-tag">caret</span>
+        <span class="stack-tag">ggplot2</span>
+        <span class="stack-tag">dplyr</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="label">Logistic Regression</div>
+    <div class="prose">
+      <h2>Model Fitting</h2>
+      <p>Interaction terms for <em>AgeCategory × Sex</em> and <em>AgeCategory × Race</em> were added based on EDA. The full model was then reduced using backward stepwise selection (AIC), removing <em>PhysicalHealth</em>, <em>MentalHealth</em>, and <em>PhysicalActivity</em>.</p>
+      <h2>Model Diagnostics</h2>
+      <p>Cook's distance identified a high number of influential points — generally observations with outlier values such as BMI of 40 (mean = 28, SD = 6). This violates the assumption of no influential points in logistic regression.</p>
+      <div class="figure">
+        <img src="https://sven-dong.netlify.app/project/supervised-and-unsupervised-study-on-heart-disease/cook_hu37b809d9c252365c55ccfe45fbf4d061_196896_ba4999ccd2702355ff36d8dcf15eefa2.webp" alt="Cook's Distance">
+        <div class="figure-caption">Fig 1. — Cook's distance plot showing influential observations during model fit.</div>
+      </div>
+      <h2>Key Findings</h2>
+      <p><strong>Q1 — Variables related to heart disease:</strong> 15 of 17 variables were significant in the final model, including BMI, Smoking, Stroke, DiffWalking, Sex, AgeCategory, Race, Diabetic, GenHealth, SleepTime, Asthma, KidneyDisease, and SkinCancer.</p>
+      <p><strong>Q2 — Most important variables:</strong></p>
+      <table>
+        <thead>
+          <tr><th>Variable</th><th>Coefficient</th><th>p-value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>AgeCategory 80 or older</td><td>2.105</td><td>&lt; 2e-16</td></tr>
+          <tr><td>GenHealth Poor</td><td>1.925</td><td>&lt; 2e-16</td></tr>
+          <tr><td>AgeCategory 60–79</td><td>1.500</td><td>&lt; 2e-16</td></tr>
+          <tr><td>GenHealth Fair</td><td>1.500</td><td>&lt; 2e-16</td></tr>
+        </tbody>
+      </table>
+      <p class="table-caption">Table 2 — Top predictors by coefficient magnitude in the final logistic regression model.</p>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="label">Decision Trees</div>
+    <div class="prose">
+      <h2>Model Fitting</h2>
+      <p>A decision tree classifier was fitted using 10-fold cross validation to find the optimal node size. The process was repeated iteratively on high-risk subgroups until heart disease probability exceeded 50%.</p>
+      <div class="figure">
+        <img src="https://sven-dong.netlify.app/project/supervised-and-unsupervised-study-on-heart-disease/Tree1_hu70e4fe37b37d4cdd9489f13c7c57ecc5_101629_0df0060957a1dba67bc3bd1265f06600.webp" alt="Decision Tree 1">
+        <div class="figure-caption">Fig 2. — Optimal decision tree (5 nodes) for the full dataset.</div>
+      </div>
+      <p>The first tree (5 nodes) showed that age under 59 with good general health predicted absence of heart disease. Those over 59 with poor or fair health formed the high-risk group (31.10% probability vs 9.03% baseline).</p>
+      <div class="figure">
+        <img src="https://sven-dong.netlify.app/project/supervised-and-unsupervised-study-on-heart-disease/Tree2_hu28d0221f0005a7700d1d75bc4d0aac00_87430_25f59f57a4caba59007d6553f63094e2.webp" alt="Decision Tree 2">
+        <div class="figure-caption">Fig 3. — Second-stage decision tree fitted on the high-risk subgroup.</div>
+      </div>
+      <p>In the second iteration on the high-risk group, prior stroke history emerged as a key splitter. Those in the high-risk group <em>with</em> stroke history had a 50.67% probability of heart disease.</p>
+      <h2>Risk Groups</h2>
+      <table>
+        <thead>
+          <tr><th>Group</th><th>Condition</th><th>P(Heart Disease)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Whole population</td><td>Benchmark</td><td>9.03%</td></tr>
+          <tr><td>Low risk</td><td>Age &lt; 59 or health above good</td><td>6.85%</td></tr>
+          <tr><td>High risk</td><td>Age ≥ 60 and health poor/fair</td><td>31.10%</td></tr>
+          <tr><td>Extremely high risk</td><td>High risk + stroke history</td><td>50.67%</td></tr>
+        </tbody>
+      </table>
+      <p class="table-caption">Table 3 — Risk group stratification from the decision tree analysis.</p>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="label">Conclusion</div>
+    <div class="prose">
+      <p>15 lifestyle variables were found to be associated with heart disease development. Age and general health were the strongest predictors. The decision tree identified people over 60, in poor or fair health, with a history of stroke as the highest-risk group (50.67% probability).</p>
+      <p>Limitations include a low adjusted R² (~0.2), a high number of influential points violating logistic regression assumptions, and imbalanced response variables. Future work should consider GAMs and oversampling techniques to address these issues.</p>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="label">References</div>
+    <div class="references">
+      <div class="reference-item">Pytlak, K. (2022, February 16). Personal key indicators of heart disease. <em>Kaggle.</em> <a href="https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease" target="_blank" rel="noopener">↗ kaggle.com</a></div>
+      <div class="reference-item">Ryoo, J.-H., Cho, S. H., &amp; Kim, S.-W. (2012). Prediction of risk factors for coronary heart disease using Framingham risk score in Korean men. <em>PLoS ONE, 7</em>(9). <a href="https://doi.org/10.1371/journal.pone.0045030" target="_blank" rel="noopener">↗ doi.org/10.1371/journal.pone.0045030</a></div>
+      <div class="reference-item">Ustyannie, W., &amp; Suprapto, S. (2020). Oversampling method to handling imbalanced datasets problem in binary logistic regression algorithm. <em>IJCCS, 14</em>(1), 1. <a href="https://doi.org/10.22146/ijccs.37415" target="_blank" rel="noopener">↗ doi.org/10.22146/ijccs.37415</a></div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-copy">© 2025 Sven Dong</span>
+    <span class="footer-copy">Data Science · ML · Visualization</span>
+  </footer>
+
+</div>
+<script src="project.js"></script>
+</body>
+</html>

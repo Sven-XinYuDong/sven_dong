@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Watch Out for Homicides — Sven Dong</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-name">Sven Dong</a>
+  <a href="index.html#projects" class="nav-back">
+    <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 5H2M2 5L5 2M2 5L5 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    All Projects
+  </a>
+</nav>
+
+<div class="container">
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="https://sven-dong.netlify.app/project/watch-out-for-homicides/screen-shot-2023-05-17-at-9.22.13-pm_hu07d01243d56d44257bf3eecd06896f7d_599031_720x2500_fit_q75_h2_lanczos_3.webp" alt="Watch Out for Homicides Dashboard">
+    </div>
+    <div class="hero-text">
+      <div class="hero-tag">Dashboard · Visualization</div>
+      <h1>Watch Out for Homicides</h1>
+      <div class="hero-meta">
+        <span class="hero-meta-item">2023</span>
+        <div class="hero-meta-div"></div>
+        <span class="hero-meta-item">Xinyu Dong</span>
+        <div class="hero-meta-div"></div>
+        <span class="hero-meta-item">Interactive Web Application</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="label">Overview</div>
+    <div class="prose">
+      <p>Compared to other high-income countries, the US has significantly greater homicide rates. Because homicides can cause significant negative effects, providing education about patterns and trends may help both everyday citizens and law enforcement agencies respond more effectively.</p>
+      <p>This project creates an interactive dashboard exploring homicide data across the United States from 2010 to 2014, enabling users to investigate how criminal activity is distributed geographically and over time.</p>
+      <div class="stack-row">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">Dash</span>
+        <span class="stack-tag">Plotly</span>
+        <span class="stack-tag">Pandas</span>
+        <span class="stack-tag">Heroku</span>
+      </div>
+      <a href="https://dash-app-murder.herokuapp.com" target="_blank" rel="noopener" class="link-btn">↗ Live App</a>
+      <a href="https://github.com/DahboardTeam/HomicideDashboard" target="_blank" rel="noopener" class="link-btn">↗ GitHub</a>
+    </div>
+  </section>
+
+  <section class="section fade">
+    <div class="label">Dashboard</div>
+    <div class="prose">
+      <h2>Tab 1 — Geographic Distribution</h2>
+      <p>The first tab visualizes the geographic distribution of homicides across the US. Users can filter by date range and weapon category. A choropleth map shows how cases are distributed geographically, while a bar chart summarizes aggregation by race and gender.</p>
+      <div class="figure">
+        <img src="https://sven-dong.netlify.app/project/watch-out-for-homicides/screen-shot-2023-03-25-at-1.32.08-pm_hu07d01243d56d44257bf3eecd06896f7d_344144_8339562f292aec710e94a773f3debb2c.webp" alt="Dashboard Tab 1">
+        <div class="figure-caption">Fig 1. — Geographic distribution tab with date and weapon filters.</div>
+      </div>
+      <h2>Tab 2 — Seasonal Trends</h2>
+      <p>The second tab examines whether homicide frequency is regulated by season or month. A dropdown menu allows users to filter by relationship type, weapon, crime type, and state, revealing temporal patterns in the data.</p>
+      <h2>Tab 3 — Crime Corridors</h2>
+      <p>The third tab visualizes crime corridors between different race and gender groups using a Sankey diagram. The area on each side represents the percentage of a group as perpetrator or victim, while the width of each connecting line indicates the count of cases between groups.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-copy">© 2025 Sven Dong</span>
+    <span class="footer-copy">Data Science · ML · Visualization</span>
+  </footer>
+
+</div>
+<script src="project.js"></script>
+</body>
+</html>
